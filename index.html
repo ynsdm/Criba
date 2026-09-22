@@ -15,132 +15,252 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
 <script>
-    tailwind.config = {
-        darkMode: 'class',
-        theme: {
-            extend: {
-                colors: {
-                    // Tonos champagne y arena tenue ultra elegantes
-                    gold: {
-                        100: '#F4EFEA',
-                        300: '#E2D4C3',
-                        400: '#D4C39E',
-                        500: '#C5A880', // Champagne Muted Base
-                        600: '#A38761',
-                        700: '#8C7A5B',
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        gold: {
+
+                            100: '#FFF9E6',
+
+                            300: '#F3E5AB',
+
+                            400: '#E6CA65',
+
+                            500: '#D4AF37',
+
+                            600: '#AA8828',
+
+                            700: '#80631B',
+
+                        },
+
+                        obsidian: {
+
+                            900: '#08080A',
+
+                            800: '#111116',
+
+                            700: '#1A1A22',
+
+                            600: '#252530',
+
+                        }
+
                     },
-                    // Fondo negro mate profundo pero no absoluto
-                    obsidian: {
-                        900: '#0A0A0C',
-                        800: '#121216',
-                        700: '#1B1B22',
-                        600: '#262630',
+
+                    fontFamily: {
+
+                        serif: ['Cinzel', 'serif'],
+
+                        sans: ['Montserrat', 'sans-serif'],
+
                     }
-                },
-                fontFamily: {
-                    serif: ['Cinzel', 'serif'],
-                    sans: ['Montserrat', 'sans-serif'],
+
                 }
+
             }
+
         }
-    }
-</script>
 
-<style>
-    body {
-        background-color: #0A0A0C;
-        color: #D1D5DB;
-        font-family: 'Montserrat', sans-serif;
-        overflow-x: hidden;
-    }
+    </script>
 
-    .font-cinzel {
-        font-family: 'Cinzel', serif;
-    }
 
-    /* Glassmorphic Luxury - Bordes tenue y transparencias refinadas */
-    .glass-card {
-        background: rgba(18, 18, 22, 0.75);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(197, 168, 128, 0.12);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
 
-    .glass-card:hover {
-        border-color: rgba(197, 168, 128, 0.3);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    }
+    <style>
 
-    .glass-nav {
-        background: rgba(10, 10, 12, 0.88);
-        backdrop-filter: blur(24px);
-        -webkit-backdrop-filter: blur(24px);
-        border-bottom: 1px solid rgba(197, 168, 128, 0.12);
-    }
+        body {
 
-    /* Gradiente sutil y suave de champagne a platino */
-    .text-gold-gradient {
-        background: linear-gradient(135deg, #F4EFEA 0%, #D4C39E 50%, #C5A880 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+            background-color: #08080A;
 
-    .gold-border-glow {
-        border: 1px solid rgba(197, 168, 128, 0.25);
-        box-shadow: 0 0 15px rgba(197, 168, 128, 0.08);
-    }
+            color: #E2E8F0;
 
-    /* Botón mate sobrio con transición sedosa */
-    .btn-gold {
-        background: linear-gradient(135deg, #D4C39E 0%, #C5A880 100%);
-        color: #0A0A0C;
-        transition: all 0.4s ease;
-        font-weight: 500;
-        letter-spacing: 1.5px;
-    }
+            font-family: 'Montserrat', sans-serif;
 
-    .btn-gold:hover {
-        background: linear-gradient(135deg, #F4EFEA 0%, #D4C39E 100%);
-        box-shadow: 0 4px 20px rgba(197, 168, 128, 0.25);
-        transform: translateY(-1px);
-    }
+            overflow-x: hidden;
 
-    /* Canvas background overlay */
-    #particleCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-    }
+        }
 
-    /* Custom Scrollbar sobrio */
-    ::-webkit-scrollbar {
-        width: 5px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0A0A0C;
-    }
-    ::-webkit-scrollbar-thumb {
-        background: #8C7A5B;
-        border-radius: 2px;
-    }
 
-    /* Modal classes */
-    .hidden-modal {
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.4s ease-in-out;
-    }
-    .show-modal {
-        opacity: 1;
-        pointer-events: auto;
-        transition: all 0.4s ease-in-out;
-    }
-</style>
+
+        .font-cinzel {
+
+            font-family: 'Cinzel', serif;
+
+        }
+
+
+
+        /* Glassmorphism Luxury Styling */
+
+        .glass-card {
+
+            background: rgba(17, 17, 22, 0.65);
+
+            backdrop-filter: blur(16px);
+
+            -webkit-backdrop-filter: blur(16px);
+
+            border: 1px solid rgba(212, 175, 55, 0.15);
+
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+        }
+
+
+
+        .glass-card:hover {
+
+            border-color: rgba(212, 175, 55, 0.4);
+
+            box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.12);
+
+        }
+
+
+
+        .glass-nav {
+
+            background: rgba(8, 8, 10, 0.85);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
+        }
+
+
+
+        /* Gold Gradient Text & Borders */
+
+        .text-gold-gradient {
+
+            background: linear-gradient(135deg, #FFF9E6 0%, #E6CA65 50%, #D4AF37 100%);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
+
+
+        .gold-border-glow {
+
+            border: 1px solid rgba(212, 175, 55, 0.4);
+
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+
+        }
+
+
+
+        .btn-gold {
+
+            background: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #AA8828 100%);
+
+            color: #08080A;
+
+            transition: all 0.3s ease;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+        }
+
+
+
+        .btn-gold:hover {
+
+            background: linear-gradient(135deg, #FFF9E6 0%, #E6CA65 50%, #D4AF37 100%);
+
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+
+            transform: translateY(-2px);
+
+        }
+
+
+
+        /* Canvas background overlay */
+
+        #particleCanvas {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+        }
+
+
+
+        /* Custom Scrollbar */
+
+        ::-webkit-scrollbar {
+
+            width: 6px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+
+            background: #08080A;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: #D4AF37;
+
+            border-radius: 3px;
+
+        }
+
+
+
+        /* Hide elements dynamically */
+
+        .hidden-modal {
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            transition: all 0.4s ease-in-out;
+
+        }
+
+        .show-modal {
+
+            opacity: 1;
+
+            pointer-events: auto;
+
+            transition: all 0.4s ease-in-out;
+
+        }
+
+    </style> 
 </head>
 <body class="relative min-h-screen text-slate-200 selection:bg-gold-500 selection:text-obsidian-900">
 
