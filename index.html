@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRIBA | Licorería de Alta Gama en Maracaibo</title>
+    <title>CRIBA | Licorería, Gastronomía & Coctelería de Alta Gama en Maracaibo</title>
     <!-- Tailwind CSS CDN -->
+    <link rel="icon" type="image/png" href="logocriba.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,7 +152,7 @@
             </div>
             
             <h2 class="font-cinzel text-3xl font-bold tracking-widest text-gold-gradient uppercase">CRIBA</h2>
-            <p class="text-xs tracking-widest uppercase text-gold-400/80 font-medium">Boutique de Licores & Colecciones Exclusivas</p>
+            <p class="text-xs tracking-widest uppercase text-gold-400/80 font-medium">Licores, Coctelería de Autor & Gastronomía</p>
             
             <div class="w-12 h-px bg-gold-500/40 mx-auto my-4"></div>
 
@@ -159,12 +160,12 @@
                 Verificación de Edad Requerida
             </h3>
             <p class="text-xs text-slate-400 leading-relaxed">
-                Para acceder a nuestra selección privada de espirituosos de alta gama en Maracaibo, debes declarar que posees la edad legal para consumir alcohol en tu país.
+                Para acceder a nuestra selección privada de espirituosos de alta gama, menú gastronómico y coctelería en Maracaibo, debes declarar que posees la edad legal para consumir alcohol.
             </p>
 
             <div class="pt-4 flex flex-col gap-3">
                 <button onclick="confirmAge(true)" class="w-full py-3.5 rounded-xl btn-gold text-xs uppercase tracking-widest shadow-lg">
-                    Soy mayor de 21 años / Ingresar
+                    Soy mayor de edad / Ingresar
                 </button>
                 <button onclick="confirmAge(false)" class="w-full py-3 rounded-xl border border-slate-700 hover:border-gold-500/30 text-slate-400 hover:text-slate-200 text-xs uppercase tracking-widest transition-all">
                     No cumplo la edad requerida
@@ -183,7 +184,7 @@
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center bg-obsidian-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]">
-                        <span class="font-cinzel text-gold-400 font-bold text-lg">C</span>
+                        <span class="font-cinzel text-gold-400 font-bold text-lg" href="logocriba.png"></span>
                     </div>
                     <div>
                         <span class="font-cinzel font-bold text-xl tracking-[0.25em] text-gold-gradient block">CRIBA</span>
@@ -195,6 +196,7 @@
                 <nav class="hidden md:flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-slate-300">
                     <a href="#hero" class="hover:text-gold-400 transition-colors">Inicio</a>
                     <a href="#catalog" class="hover:text-gold-400 transition-colors">Colección Privada</a>
+                    <a href="#gastro-cocktails" class="hover:text-gold-400 transition-colors">Gastronomía & Cócteles</a>
                     <a href="#vip-concierge" class="hover:text-gold-400 transition-colors">Atención VIP</a>
                     <a href="#location" class="hover:text-gold-400 transition-colors">Contacto</a>
                 </nav>
@@ -224,21 +226,21 @@
         <div class="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-md">
                 <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
-                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-medium">Boutique Exclusiva de Licores &bull; Maracaibo</span>
+                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-medium">Boutique Exclusiva, Gastronomía & Mixología &bull; Maracaibo</span>
             </div>
 
             <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-100 leading-tight">
                 CRIBA <br>
-                <span class="text-gold-gradient font-normal italic">El Arte del Buen Beber</span>
+                <span class="text-gold-gradient font-normal italic">Licores, Sabores & Mixología</span>
             </h1>
 
             <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300/90 font-light leading-relaxed tracking-wide">
-                Curaduría refinada de los espirituosos más codiciados del planeta. Cognacs legendarios, Whiskies de edición limitada, Tequilas extra añejos y Champagnes icónicos. Entrega exprés con temperatura controlada a toda Maracaibo.
+                Curaduría refinada de espirituosos de alta gama, cócteles de autor elaborados al momento y platillos gourmet diseñados para el maridaje perfecto. Experimenta la vanguardia del buen vivir en Maracaibo.
             </p>
 
             <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-5">
                 <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold text-xs uppercase tracking-[0.2em] shadow-xl flex items-center justify-center gap-3 group">
-                    Explorar Colección
+                    Explorar Carta & Menú
                     <i class="fa-solid fa-arrow-right-long text-xs transition-transform group-hover:translate-x-1"></i>
                 </a>
                 <a href="#vip-concierge" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card border-gold-500/30 hover:border-gold-500/60 text-gold-300 text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3">
@@ -250,31 +252,31 @@
             <!-- Features Quick Highlights -->
             <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
                 <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-martini-glass-citrus text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">Coctelería de Autor</p>
+                        <p class="text-[10px] text-slate-400">Mixología de alta gama</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-utensils text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">Menú Gourmet</p>
+                        <p class="text-[10px] text-slate-400">Maridaje exclusivo</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
                     <i class="fa-solid fa-truck-fast text-gold-400 text-xl"></i>
                     <div>
                         <p class="text-xs font-semibold text-slate-200">Delivery VIP</p>
-                        <p class="text-[10px] text-slate-400">Zona Norte & Bella Vista</p>
+                        <p class="text-[10px] text-slate-400">Empaque térmico & seguro</p>
                     </div>
                 </div>
                 <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
                     <i class="fa-solid fa-certificate text-gold-400 text-xl"></i>
                     <div>
-                        <p class="text-xs font-semibold text-slate-200">100% Auténtico</p>
-                        <p class="text-[10px] text-slate-400">Garantía de Origen</p>
-                    </div>
-                </div>
-                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
-                    <i class="fa-solid fa-glass-water-droplet text-gold-400 text-xl"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-slate-200">Temperatura Ideal</p>
-                        <p class="text-[10px] text-slate-400">Cavas climatizadas</p>
-                    </div>
-                </div>
-                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
-                    <i class="fa-solid fa-[24-7] text-gold-400 text-xl"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-slate-200">Concierge Privado</p>
-                        <p class="text-[10px] text-slate-400">Asesoría sommelier</p>
+                        <p class="text-xs font-semibold text-slate-200">Calidad Superior</p>
+                        <p class="text-[10px] text-slate-400">Insumos importados</p>
                     </div>
                 </div>
             </div>
@@ -284,8 +286,8 @@
     <!-- 3. Interactive Catalog / Showcase Section -->
     <section id="catalog" class="py-20 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center space-y-4 mb-12">
-            <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Catálogo Exclusivo</span>
-            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-slate-100">Colecciones de Alta Gama</h2>
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Nuestra Oferta Exclusiva</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-slate-100">Catálogo, Coctelería & Menú Gastronómico</h2>
             <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto"></div>
         </div>
 
@@ -294,7 +296,7 @@
             <!-- Search Bar -->
             <div class="max-w-md mx-auto relative">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-400/60 text-sm"></i>
-                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar por marca, destilería o añada (ej. Macallan, Don Julio, Blue Label)..." 
+                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar licores, platillos, cócteles (ej. Macallan, Tártar, Old Fashioned)..." 
                     class="w-full pl-11 pr-4 py-3.5 bg-obsidian-800/80 border border-gold-500/20 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-gold-500/60 focus:ring-1 focus:ring-gold-500/30 transition-all">
             </div>
 
@@ -303,14 +305,17 @@
                 <button onclick="setCategory('all')" class="cat-btn active px-5 py-2.5 rounded-full border border-gold-500/40 bg-gold-500 text-obsidian-900 font-semibold tracking-wider transition-all shrink-0">
                     Todos
                 </button>
+                <button onclick="setCategory('cocktails')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    🍸 Coctelería de Autor
+                </button>
+                <button onclick="setCategory('food')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    🍽️ Gastronomía Gourmet
+                </button>
                 <button onclick="setCategory('whisky')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
                     Single Malt & Whisky
                 </button>
                 <button onclick="setCategory('tequila')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
                     Tequila & Mezcal
-                </button>
-                <button onclick="setCategory('cognac')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
-                    Cognac & Brandy
                 </button>
                 <button onclick="setCategory('champagne')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
                     Champagne & Espumantes
@@ -327,18 +332,79 @@
         </div>
     </section>
 
-    <!-- 4. Sommelier & VIP Concierge Experience Section -->
-    <section id="vip-concierge" class="py-20 relative z-10 bg-obsidian-800/40 border-y border-gold-500/10">
+    <!-- 4. Special Section: Gastronomía & Coctelería Experience Banner -->
+    <section id="gastro-cocktails" class="py-20 relative z-10 bg-gradient-to-b from-obsidian-900 via-obsidian-800/80 to-obsidian-900 border-y border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Experiencia Criba</span>
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-slate-100">La Sinergia Perfecta: Mixología & Cocina</h2>
+                <p class="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                    Diseñamos cada platillo y cóctel para ofrecerte una experiencia sensorial sin precedentes. Disfrútalos en nuestra sede o solicítalos directamente a tu residencia con empaques especiales de conservación.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Cocteleria Highlight Card -->
+                <div class="glass-card p-8 rounded-2xl border-gold-500/30 space-y-6 relative overflow-hidden group">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-2xl">
+                            <i class="fa-solid fa-martini-glass-citrus"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest bg-gold-500/20 text-gold-300 px-3 py-1 rounded-full border border-gold-500/30">Bar & Lounge</span>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-2xl font-bold text-slate-100 group-hover:text-gold-300 transition-colors">Mixología de Autor</h3>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Cócteles creados por mixólogos premiados. Macerados artesanales, hielo esférico cristalino, ahumados en madera de roble y los espirituosos más finos de nuestra cava.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-gold-500/20 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400 text-[10px]"></i> Jarabes e infusiones de la casa</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400 text-[10px]"></i> Servicio de barra móvil para eventos privados</li>
+                    </ul>
+                    <button onclick="setCategory('cocktails'); document.getElementById('catalog').scrollIntoView();" class="w-full py-3 rounded-xl border border-gold-500/40 text-gold-300 text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-obsidian-900 font-semibold transition-all">
+                        Ver Menú de Cócteles
+                    </button>
+                </div>
+
+                <!-- Gastronomía Highlight Card -->
+                <div class="glass-card p-8 rounded-2xl border-gold-500/30 space-y-6 relative overflow-hidden group">
+                    <div class="flex items-center justify-between">
+                        <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/40 flex items-center justify-center text-gold-400 text-2xl">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest bg-gold-500/20 text-gold-300 px-3 py-1 rounded-full border border-gold-500/30">Cuisine & Pairing</span>
+                    </div>
+                    <div>
+                        <h3 class="font-cinzel text-2xl font-bold text-slate-100 group-hover:text-gold-300 transition-colors">Gastronomía Gourmet</h3>
+                        <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                            Acompañamientos concebidos específicamente para realzar el perfil de sabor de nuestros whiskies, tequilas y champagne. Ingredientes frescos e importados.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-2 border-t border-gold-500/20 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400 text-[10px]"></i> Tablas de quesos madurados e ibéricos</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400 text-[10px]"></i> Cortes de carne premium & mariscos frescos</li>
+                    </ul>
+                    <button onclick="setCategory('food'); document.getElementById('catalog').scrollIntoView();" class="w-full py-3 rounded-xl border border-gold-500/40 text-gold-300 text-xs uppercase tracking-widest hover:bg-gold-500 hover:text-obsidian-900 font-semibold transition-all">
+                        Ver Menú de Comida
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Sommelier & VIP Concierge Experience Section -->
+    <section id="vip-concierge" class="py-20 relative z-10 bg-obsidian-800/40 border-b border-gold-500/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 
                 <div class="space-y-6">
                     <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Servicios Exclusivos Criba</span>
                     <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-slate-100 leading-tight">
-                        Concierge Privado & Experiencias de Catas
+                        Concierge Privado, Eventos & Catas
                     </h2>
                     <p class="text-sm text-slate-300 leading-relaxed font-light">
-                        Ofrecemos un servicio a la medida para los paladares más exigentes de Maracaibo. Desde la selección de botellas para bodas y eventos corporativos de alto nivel, hasta asesoría personalizada para cavas privadas.
+                        Ofrecemos un servicio a la medida para los paladares más exigentes de Maracaibo. Desde el catering de comida y cócteles para reuniones exclusivas, hasta la selección de botellas para bodas y eventos corporativos.
                     </p>
 
                     <div class="space-y-4 pt-2">
@@ -348,7 +414,7 @@
                             </div>
                             <div>
                                 <h3 class="text-sm font-semibold text-slate-200">Asesoría para Bodas & Eventos</h3>
-                                <p class="text-xs text-slate-400 leading-relaxed">Cálculo de maridaje, consignación especial y entrega Climatizada en el lugar de la recepción.</p>
+                                <p class="text-xs text-slate-400 leading-relaxed">Cálculo de maridaje, servicio de cócteles en vivo y consignación especial.</p>
                             </div>
                         </div>
 
@@ -358,7 +424,7 @@
                             </div>
                             <div>
                                 <h3 class="text-sm font-semibold text-slate-200">Regalos Corporativos Luxury</h3>
-                                <p class="text-xs text-slate-400 leading-relaxed">Presentaciones de regalo personalizadas con grabado de cofres, copas de cristal y notas manuscritas.</p>
+                                <p class="text-xs text-slate-400 leading-relaxed">Presentaciones de regalo personalizadas con cofres, copas y notas manuscritas.</p>
                             </div>
                         </div>
 
@@ -368,7 +434,7 @@
                             </div>
                             <div>
                                 <h3 class="text-sm font-semibold text-slate-200">Delivery Exclusivo en Maracaibo</h3>
-                                <p class="text-xs text-slate-400 leading-relaxed">Atención inmediata en Zona Norte, La Lago, Bella Vista, 5 de Julio y zonas aledañas.</p>
+                                <p class="text-xs text-slate-400 leading-relaxed">Atención inmediata con control térmico en Zona Norte, La Lago, Bella Vista y 5 de Julio.</p>
                             </div>
                         </div>
                     </div>
@@ -389,7 +455,7 @@
                             <span class="text-[10px] uppercase tracking-widest bg-gold-500/20 text-gold-300 px-3 py-1 rounded-full border border-gold-500/30">Maracaibo</span>
                         </div>
                         <p class="text-xs text-slate-300 italic leading-relaxed">
-                            "El verdadero lujo no es solo poseer una botella extraordinaria, sino el ritual y la memoria que se crea al descorcharla."
+                            "El verdadero lujo no es solo poseer una botella extraordinaria, sino la experiencia integral del buen beber y del buen comer."
                         </p>
                         <div class="space-y-3 pt-2">
                             <div class="flex justify-between text-xs border-b border-slate-800 pb-2">
@@ -397,8 +463,8 @@
                                 <span class="text-gold-400 font-semibold">Respuesta inmediata</span>
                             </div>
                             <div class="flex justify-between text-xs border-b border-slate-800 pb-2">
-                                <span class="text-slate-400">Envíos Especiales</span>
-                                <span class="text-slate-200">Zulia & Nacional</span>
+                                <span class="text-slate-400">Servicio de Comida & Coctelería</span>
+                                <span class="text-slate-200">Preparado al momento</span>
                             </div>
                             <div class="flex justify-between text-xs">
                                 <span class="text-slate-400">Métodos de Pago</span>
@@ -414,7 +480,7 @@
         </div>
     </section>
 
-    <!-- 5. Tasting Notes Modal (Interactive Flavor Profile) -->
+    <!-- 6. Tasting & Dish Detail Modal (Interactive Sensory Profile) -->
     <div id="tastingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-900/90 backdrop-blur-md hidden-modal">
         <div class="relative max-w-xl w-full glass-card rounded-2xl p-6 sm:p-8 border border-gold-500/40 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
             <!-- Close Button -->
@@ -423,41 +489,41 @@
             </button>
 
             <div class="flex items-center gap-4">
-                <img id="modalImg" src="" alt="" class="w-20 h-28 object-contain rounded-lg bg-obsidian-900/50 p-2 border border-gold-500/20">
+                <img id="modalImg" src="" alt="" class="w-20 h-28 object-cover rounded-lg bg-obsidian-900/50 p-2 border border-gold-500/20">
                 <div>
                     <span id="modalCategory" class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold">Categoría</span>
-                    <h3 id="modalTitle" class="font-cinzel text-xl font-bold text-slate-100">Nombre de la Botella</h3>
+                    <h3 id="modalTitle" class="font-cinzel text-xl font-bold text-slate-100">Nombre del Producto</h3>
                     <p id="modalPrice" class="text-gold-gradient font-bold text-lg mt-1">$0.00</p>
                 </div>
             </div>
 
             <div class="w-full h-px bg-gold-500/20"></div>
 
-            <!-- Flavor & Tasting Notes Grid -->
+            <!-- Dynamic Sensory / Recipe Details Grid -->
             <div class="space-y-4">
-                <h4 class="font-cinzel text-sm text-gold-300 font-bold tracking-wider">Notas de Cata & Perfil Sensorial</h4>
+                <h4 id="modalDetailHeader" class="font-cinzel text-sm text-gold-300 font-bold tracking-wider">Notas de Cata & Perfil Sensorial</h4>
                 
                 <div class="grid grid-cols-2 gap-3 text-xs">
                     <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
-                        <span class="text-gold-400/80 font-medium block mb-1">Aroma</span>
-                        <p id="modalAroma" class="text-slate-300 font-light">--</p>
+                        <span id="labelField1" class="text-gold-400/80 font-medium block mb-1">Aroma / Base</span>
+                        <p id="modalField1" class="text-slate-300 font-light">--</p>
                     </div>
                     <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
-                        <span class="text-gold-400/80 font-medium block mb-1">Paladar</span>
-                        <p id="modalPalate" class="text-slate-300 font-light">--</p>
+                        <span id="labelField2" class="text-gold-400/80 font-medium block mb-1">Paladar / Ingredientes</span>
+                        <p id="modalField2" class="text-slate-300 font-light">--</p>
                     </div>
                     <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
-                        <span class="text-gold-400/80 font-medium block mb-1">Final</span>
-                        <p id="modalFinish" class="text-slate-300 font-light">--</p>
+                        <span id="labelField3" class="text-gold-400/80 font-medium block mb-1">Final / Presentación</span>
+                        <p id="modalField3" class="text-slate-300 font-light">--</p>
                     </div>
                     <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
-                        <span class="text-gold-400/80 font-medium block mb-1">Graduación Alcohólica</span>
-                        <p id="modalABV" class="text-slate-300 font-light">--</p>
+                        <span id="labelField4" class="text-gold-400/80 font-medium block mb-1">Graduación / Tiempo</span>
+                        <p id="modalField4" class="text-slate-300 font-light">--</p>
                     </div>
                 </div>
 
                 <div class="bg-obsidian-800/80 p-3.5 rounded-lg border border-gold-500/10 text-xs">
-                    <span class="text-gold-400/80 font-medium block mb-1">Sugerencia de Maridaje</span>
+                    <span class="text-gold-400/80 font-medium block mb-1">Recomendación de Maridaje</span>
                     <p id="modalPairing" class="text-slate-300 font-light">--</p>
                 </div>
             </div>
@@ -470,7 +536,7 @@
         </div>
     </div>
 
-    <!-- 6. Luxury Cart / Direct WhatsApp Order Drawer -->
+    <!-- 7. Luxury Cart / Direct WhatsApp Order Drawer -->
     <div id="cartDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-obsidian-900/95 backdrop-blur-2xl border-l border-gold-500/30 transform translate-x-full transition-transform duration-500 flex flex-col">
         <!-- Drawer Header -->
         <div class="p-6 border-b border-gold-500/20 flex items-center justify-between">
@@ -487,8 +553,8 @@
         <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
             <!-- Empty state fallback -->
             <div id="emptyCartMsg" class="text-center py-16 space-y-3">
-                <i class="fa-solid fa-wine-bottle text-4xl text-slate-700"></i>
-                <p class="text-xs text-slate-400">Aún no has agregado botellas a tu selección.</p>
+                <i class="fa-solid fa-utensils text-4xl text-slate-700"></i>
+                <p class="text-xs text-slate-400">Aún no has agregado elementos a tu selección.</p>
             </div>
         </div>
 
@@ -517,7 +583,7 @@
         </div>
     </div>
 
-    <!-- 7. Footer & Social Links -->
+    <!-- 8. Footer & Social Links -->
     <footer id="location" class="relative z-10 border-t border-gold-500/20 bg-obsidian-900 pt-16 pb-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
@@ -526,7 +592,7 @@
                 <div class="space-y-4">
                     <span class="font-cinzel text-2xl font-bold tracking-widest text-gold-gradient block">CRIBA</span>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        Licorería de Alta Gama en Maracaibo, Venezuela. Especialistas en licores raros, champagnes finos y destilados ultra-premium.
+                        Licores de Alta Gama, Coctelería de Autor & Gastronomía Gourmet en Maracaibo, Venezuela.
                     </p>
                     <div class="flex space-x-3 pt-2">
                         <a href="https://www.instagram.com/criba.ve?stkn=MTl0NXlrNXZ4bXFiYw==" target="_blank" class="w-9 h-9 rounded-full bg-obsidian-800 border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 flex items-center justify-center transition-all">
@@ -544,8 +610,8 @@
                     <ul class="space-y-2 text-xs text-slate-400">
                         <li><a href="#hero" class="hover:text-gold-400 transition-colors">Inicio</a></li>
                         <li><a href="#catalog" class="hover:text-gold-400 transition-colors">Catálogo VIP</a></li>
+                        <li><a href="#gastro-cocktails" class="hover:text-gold-400 transition-colors">Gastronomía & Coctelería</a></li>
                         <li><a href="#vip-concierge" class="hover:text-gold-400 transition-colors">Servicios Sommelier</a></li>
-                        <li><a href="#catalog" class="hover:text-gold-400 transition-colors">Whiskies & Cognacs</a></li>
                     </ul>
                 </div>
 
@@ -557,7 +623,7 @@
                         Atención en Tienda & Delivery Exclusivo.
                     </p>
                     <p class="text-xs text-slate-400">
-                        <i class="fa-solid fa-clock text-gold-400 mr-2"></i>Lunes a Sábado: 10:00 AM - 10:00 PM
+                        <i class="fa-solid fa-clock text-gold-400 mr-2"></i>Lunes a Sábado: 10:00 AM - 11:00 PM
                     </p>
                 </div>
 
@@ -569,7 +635,7 @@
                             <i class="fa-brands fa-instagram text-2xl text-gold-400 group-hover:scale-110 transition-transform"></i>
                             <div>
                                 <span class="text-xs font-semibold text-slate-200 block">@criba.ve</span>
-                                <span class="text-[10px] text-slate-400">Síguenos para lanzamientos exclusivos</span>
+                                <span class="text-[10px] text-slate-400">Síguenos para novedades y eventos</span>
                             </div>
                         </div>
                     </a>
@@ -587,8 +653,91 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // --- 1. Product Data Store ---
+        // --- 1. Combined Store Data (Liquors, Cocktails & Gourmet Food) ---
         const products = [
+            // --- COCTELERÍA DE AUTOR ---
+            {
+                id: 101,
+                name: "Criba Smoked Old Fashioned",
+                category: "cocktails",
+                price: 18.00,
+                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+                badge: "Coctelería de Autor",
+                aroma: "Madera de manzano ahumada, cáscara de naranja y especias.",
+                palate: "Bourbon de reserva, amargo de angostura y jarabe de maple artesanal.",
+                finish: "Esférico, persistente con toque tostado.",
+                abv: "22% Vol.",
+                pairing: "Marida perfecto con la Tabla de Ibéricos o Mini Sliders de Wagyu."
+            },
+            {
+                id: 102,
+                name: "Tequila Luxury Highball",
+                category: "cocktails",
+                price: 16.00,
+                image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80",
+                badge: "Signature Cocktail",
+                aroma: "Agave fresco, toronja rosada y pimienta rosa.",
+                palate: "Tequila Reposado, tónica artesanal, licor de flor de saúco y romero.",
+                finish: "Fresco, efervescente y cítrico.",
+                abv: "14% Vol.",
+                pairing: "Excelente opción junto a nuestro Tártar de Atún Rojo."
+            },
+            {
+                id: 103,
+                name: "Champagne Royal Velvet",
+                category: "cocktails",
+                price: 22.00,
+                image: "https://images.unsplash.com/photo-1569937756447-1d44f657dc69?auto=format&fit=crop&w=600&q=80",
+                badge: "Edición Especial",
+                aroma: "Frutos rojos silvestres, levadura fina y notas florales.",
+                palate: "Champagne Brut, licor de cassis artesanal y láminas de oro comestible 24k.",
+                finish: "Elegante y muy refinado.",
+                abv: "12.5% Vol.",
+                pairing: "Ostras frescas o postres de chocolate amargo."
+            },
+
+            // --- GASTRONOMÍA GOURMET ---
+            {
+                id: 201,
+                name: "Tabla de Quesos Artesanales & Ibéricos",
+                category: "food",
+                price: 45.00,
+                image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80",
+                badge: "Gourmet Selection",
+                aroma: "Queso Manchego curado, Jamón Ibérico de Bellota, Camembert con trufa y frutos secos.",
+                palate: "Texturas cremosas, saladas y ahumadas acompañadas con pan focaccia recién horneado.",
+                finish: "Presentación en tabla de madera noble.",
+                abv: "Preparación al momento (20 min)",
+                pairing: "Acompañante ideal para Whiskies Single Malt o Vinos Tintos de Reserva."
+            },
+            {
+                id: 202,
+                name: "Tártar de Atún Rojo & Caviar",
+                category: "food",
+                price: 32.00,
+                image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80",
+                badge: "Platillo Insignia",
+                aroma: "Atún aleta amarilla fresco, emulsión de sésamo tostado, aguacate y perlas de caviar.",
+                palate: "Textura suave y sedosa con toque de soya añejada y tostas crocantes.",
+                finish: "Servido frío a temperatura óptima.",
+                abv: "Preparación fresca al instante",
+                pairing: "Marida de forma sublime con Champagne Brut o Tequila Blanco."
+            },
+            {
+                id: 203,
+                name: "Mini Sliders de Wagyu & Trufa",
+                category: "food",
+                price: 28.00,
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+                badge: "Bites Exclusivos",
+                aroma: "Carne Wagyu 100%, mayonesa de trufa negra, queso Gruyère fundido en pan brioche.",
+                palate: "Jugoso, umami intenso y suavidad envolvente. Trío de mini hamburguesas.",
+                finish: "Servidas calientes.",
+                abv: "Preparación al momento (15 min)",
+                pairing: "Recomendado con Bourbon, Old Fashioned o Ron Gran Reserva."
+            },
+
+            // --- BOTELLAS DE LICOR ALTA GAMA ---
             {
                 id: 1,
                 name: "The Macallan 18 Years Sherry Oak",
@@ -626,33 +775,7 @@
                 palate: "Elegante, burbuja ultra fina y acidez balanceada.",
                 finish: "Limpio, mineral y memorable.",
                 abv: "12.5% Vol.",
-                pairing: "Ostras frescas, caviar o mariscos de alta cocina."
-            },
-            {
-                id: 4,
-                name: "Hennessy X.O Cognac Extra Old",
-                category: "cognac",
-                price: 310.00,
-                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80",
-                badge: "Gran Clásico",
-                aroma: "Frutas confitadas, pimienta negra y notas de cacao.",
-                palate: "Robusto, complejo con toques de pimienta y cedro.",
-                finish: "Terciopelo envolvente y muy prolongado.",
-                abv: "40% Vol.",
-                pairing: "Puros habanos, quesos azules o consumo digestivo."
-            },
-            {
-                id: 5,
-                name: "Johnnie Walker Blue Label",
-                category: "whisky",
-                price: 260.00,
-                image: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=600&q=80",
-                badge: "Rare Blended",
-                aroma: "Humo suave, avellana confitada y especias.",
-                palate: "Miel, jerez, naranjas secas y toque ahumado.",
-                finish: "Ahumado terciopelado inconfundible.",
-                abv: "40% Vol.",
-                pairing: "Acompañamiento con agua helada de manantial."
+                pairing: "Ostras frescas, Tártar de Atún o mariscos de alta cocina."
             },
             {
                 id: 6,
@@ -674,7 +797,6 @@
 
         // --- 2. Initial Setup & Age Modal ---
         window.onload = function() {
-            // Check if user already verified age in current session
             const isVerified = sessionStorage.getItem('cribaAgeVerified');
             if (isVerified === 'true') {
                 document.getElementById('ageModal').classList.add('hidden');
@@ -700,14 +822,15 @@
         function setCategory(cat) {
             currentCategory = cat;
             
-            // Update active tab styling
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.classList.remove('bg-gold-500', 'text-obsidian-900', 'font-semibold');
                 btn.classList.add('bg-obsidian-800/60', 'text-slate-300');
             });
 
-            event.currentTarget.classList.add('bg-gold-500', 'text-obsidian-900', 'font-semibold');
-            event.currentTarget.classList.remove('bg-obsidian-800/60', 'text-slate-300');
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('bg-gold-500', 'text-obsidian-900', 'font-semibold');
+                event.currentTarget.classList.remove('bg-obsidian-800/60', 'text-slate-300');
+            }
 
             renderProducts();
         }
@@ -730,7 +853,7 @@
                 container.innerHTML = `
                     <div class="col-span-full text-center py-12 text-slate-400 space-y-2">
                         <i class="fa-solid fa-magnifying-glass text-3xl text-gold-500/40"></i>
-                        <p class="text-sm">No encontramos botellas que coincidan con tu búsqueda.</p>
+                        <p class="text-sm">No encontramos opciones que coincidan con tu búsqueda.</p>
                     </div>
                 `;
                 return;
@@ -744,14 +867,14 @@
                             ${p.badge}
                         </span>
 
-                        <!-- Bottle Image -->
-                        <div class="h-52 w-full flex items-center justify-center p-4 overflow-hidden">
-                            <img src="${p.image}" alt="${p.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-500 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)]" onerror="this.src='https://placehold.co/300x400/111116/D4AF37?text=CRIBA+Bottle'">
+                        <!-- Image -->
+                        <div class="h-52 w-full flex items-center justify-center p-2 overflow-hidden rounded-xl bg-obsidian-900/40">
+                            <img src="${p.image}" alt="${p.name}" class="h-full w-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-500 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)]" onerror="this.src='https://placehold.co/300x400/111116/D4AF37?text=CRIBA+Item'">
                         </div>
 
                         <!-- Info -->
                         <div>
-                            <span class="text-[10px] uppercase tracking-widest text-gold-400/80 font-medium">${p.category}</span>
+                            <span class="text-[10px] uppercase tracking-widest text-gold-400/80 font-medium">${getCategoryLabel(p.category)}</span>
                             <h3 class="font-cinzel text-lg font-bold text-slate-100 group-hover:text-gold-300 transition-colors">${p.name}</h3>
                             <p class="text-gold-gradient font-bold text-xl mt-1">$${p.price.toFixed(2)}</p>
                         </div>
@@ -759,8 +882,8 @@
 
                     <div class="pt-6 space-y-2.5">
                         <button onclick="openTastingModal(${p.id})" class="w-full py-2.5 rounded-lg border border-gold-500/30 hover:border-gold-500 text-gold-300 text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-wine-glass text-[11px]"></i>
-                            Notas de Cata
+                            <i class="fa-solid ${p.category === 'food' ? 'fa-utensils' : 'fa-wine-glass'} text-[11px]"></i>
+                            ${p.category === 'food' ? 'Detalles & Maridaje' : 'Notas de Cata'}
                         </button>
                         <button onclick="addToCart(${p.id})" class="w-full py-3 rounded-lg btn-gold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
                             <i class="fa-solid fa-plus text-[11px]"></i>
@@ -771,19 +894,53 @@
             `).join('');
         }
 
-        // --- 4. Tasting Modal Logic ---
+        function getCategoryLabel(cat) {
+            switch(cat) {
+                case 'cocktails': return '🍸 Coctelería de Autor';
+                case 'food': return '🍽️ Gastronomía Gourmet';
+                case 'whisky': return '🥃 Single Malt & Whisky';
+                case 'tequila': return '🌵 Tequila & Mezcal';
+                case 'champagne': return '🍾 Champagne & Espumantes';
+                case 'rum': return '🥃 Ron Gran Reserva';
+                default: return 'CRIBA Exclusive';
+            }
+        }
+
+        // --- 4. Modal Detail Logic ---
         function openTastingModal(id) {
             const p = products.find(prod => prod.id === id);
             if (!p) return;
 
             document.getElementById('modalImg').src = p.image;
-            document.getElementById('modalCategory').innerText = p.category;
+            document.getElementById('modalCategory').innerText = getCategoryLabel(p.category);
             document.getElementById('modalTitle').innerText = p.name;
             document.getElementById('modalPrice').innerText = `$${p.price.toFixed(2)}`;
-            document.getElementById('modalAroma').innerText = p.aroma;
-            document.getElementById('modalPalate').innerText = p.palate;
-            document.getElementById('modalFinish').innerText = p.finish;
-            document.getElementById('modalABV').innerText = p.abv;
+
+            // Customize labels according to category type (Food vs Drinks)
+            if (p.category === 'food') {
+                document.getElementById('modalDetailHeader').innerText = 'Detalles Gastronómicos & Ingredientes';
+                document.getElementById('labelField1').innerText = 'Ingredientes Principales';
+                document.getElementById('labelField2').innerText = 'Perfil de Sabor & Textura';
+                document.getElementById('labelField3').innerText = 'Presentación';
+                document.getElementById('labelField4').innerText = 'Tiempo de Preparación';
+            } else if (p.category === 'cocktails') {
+                document.getElementById('modalDetailHeader').innerText = 'Receta de Autor & Perfil Gustativo';
+                document.getElementById('labelField1').innerText = 'Perfil Aromático';
+                document.getElementById('labelField2').innerText = 'Mezcla & Espirituoso Base';
+                document.getElementById('labelField3').innerText = 'Garnish & Estilo';
+                document.getElementById('labelField4').innerText = 'Graduación Alcohólica';
+            } else {
+                document.getElementById('modalDetailHeader').innerText = 'Notas de Cata & Perfil Sensorial';
+                document.getElementById('labelField1').innerText = 'Aroma';
+                document.getElementById('labelField2').innerText = 'Paladar';
+                document.getElementById('labelField3').innerText = 'Final';
+                document.getElementById('labelField4').innerText = 'Graduación Alcohólica';
+            }
+
+            document.getElementById('modalField1').innerText = p.aroma;
+            document.getElementById('modalField2').innerText = p.palate;
+            document.getElementById('modalField3').innerText = p.finish;
+            document.getElementById('modalField4').innerText = p.abv;
             document.getElementById('modalPairing').innerText = p.pairing;
 
             const addBtn = document.getElementById('modalAddToCartBtn');
@@ -843,7 +1000,6 @@
             const totalItems = cart.reduce((acc, i) => acc + i.quantity, 0);
             const totalSum = cart.reduce((acc, i) => acc + (i.price * i.quantity), 0);
 
-            // Badge count
             if (totalItems > 0) {
                 badge.innerText = totalItems;
                 badge.classList.remove('hidden');
@@ -857,8 +1013,8 @@
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div id="emptyCartMsg" class="text-center py-16 space-y-3">
-                        <i class="fa-solid fa-wine-bottle text-4xl text-slate-700"></i>
-                        <p class="text-xs text-slate-400">Aún no has agregado botellas a tu selección.</p>
+                        <i class="fa-solid fa-utensils text-4xl text-slate-700"></i>
+                        <p class="text-xs text-slate-400">Aún no has agregado elementos a tu selección.</p>
                     </div>
                 `;
                 return;
@@ -866,7 +1022,7 @@
 
             container.innerHTML = cart.map(item => `
                 <div class="flex items-center gap-4 bg-obsidian-800/80 p-3.5 rounded-xl border border-gold-500/10">
-                    <img src="${item.image}" alt="${item.name}" class="w-12 h-16 object-contain rounded bg-obsidian-900/50 p-1">
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-16 object-cover rounded bg-obsidian-900/50 p-1">
                     <div class="flex-1 min-w-0">
                         <h4 class="text-xs font-semibold text-slate-200 truncate">${item.name}</h4>
                         <p class="text-gold-400 text-xs font-bold mt-0.5">$${(item.price * item.quantity).toFixed(2)}</p>
@@ -896,12 +1052,12 @@
 
         function sendWhatsAppOrder() {
             if (cart.length === 0) {
-                alert("Tu selección está vacía. Selecciona botellas antes de continuar.");
+                alert("Tu selección está vacía. Selecciona elementos antes de continuar.");
                 return;
             }
 
             let text = "✨ *NUEVO PEDIDO DE SELECCIÓN VIP - CRIBA MARACAIBO* ✨%0A%0A";
-            text += "Deseo consultar disponibilidad y coordinar delivery para las siguientes botellas:%0A%0A";
+            text += "Deseo consultar disponibilidad y pedir los siguientes ítems (Licores, Coctelería o Gastronomía):%0A%0A";
 
             cart.forEach(item => {
                 text += `• *${item.name}* (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}%0A`;
