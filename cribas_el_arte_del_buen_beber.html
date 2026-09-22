@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRIBAS | Licorería de Alta Gama en Maracaibo</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF9E6',
+                            300: '#F3E5AB',
+                            400: '#E6CA65',
+                            500: '#D4AF37',
+                            600: '#AA8828',
+                            700: '#80631B',
+                        },
+                        obsidian: {
+                            900: '#08080A',
+                            800: '#111116',
+                            700: '#1A1A22',
+                            600: '#252530',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #08080A;
+            color: #E2E8F0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Glassmorphism Luxury Styling */
+        .glass-card {
+            background: rgba(17, 17, 22, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            box-shadow: 0 12px 40px 0 rgba(212, 175, 55, 0.12);
+        }
+
+        .glass-nav {
+            background: rgba(8, 8, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Gold Gradient Text & Borders */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #FFF9E6 0%, #E6CA65 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #AA8828 100%);
+            color: #08080A;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #FFF9E6 0%, #E6CA65 50%, #D4AF37 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Canvas background overlay */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 3px;
+        }
+
+        /* Hide elements dynamically */
+        .hidden-modal {
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s ease-in-out;
+        }
+        .show-modal {
+            opacity: 1;
+            pointer-events: auto;
+            transition: all 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-200 selection:bg-gold-500 selection:text-obsidian-900">
+
+    <!-- Gold Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- 1. Age Verification Modal -->
+    <div id="ageModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-900/95 backdrop-blur-xl transition-all duration-700">
+        <div class="relative max-w-lg w-full glass-card p-8 md:p-12 rounded-2xl text-center border border-gold-500/30 shadow-2xl space-y-6">
+            <div class="w-20 h-20 mx-auto mb-2 rounded-full border border-gold-500/40 flex items-center justify-center bg-obsidian-800/80 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                <i class="fa-solid font-cinzel text-3xl text-gold-400">C</i>
+            </div>
+            
+            <h2 class="font-cinzel text-3xl font-bold tracking-widest text-gold-gradient uppercase">CRIBAS</h2>
+            <p class="text-xs tracking-widest uppercase text-gold-400/80 font-medium">Boutique de Licores & Colecciones Exclusivas</p>
+            
+            <div class="w-12 h-px bg-gold-500/40 mx-auto my-4"></div>
+
+            <h3 class="text-lg text-slate-200 font-light tracking-wide">
+                Verificación de Edad Requerida
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                Para acceder a nuestra selección privada de espirituosos de alta gama en Maracaibo, debes declarar que posees la edad legal para consumir alcohol en tu país.
+            </p>
+
+            <div class="pt-4 flex flex-col gap-3">
+                <button onclick="confirmAge(true)" class="w-full py-3.5 rounded-xl btn-gold text-xs uppercase tracking-widest shadow-lg">
+                    Soy mayor de 21 años / Ingresar
+                </button>
+                <button onclick="confirmAge(false)" class="w-full py-3 rounded-xl border border-slate-700 hover:border-gold-500/30 text-slate-400 hover:text-slate-200 text-xs uppercase tracking-widest transition-all">
+                    No cumplo la edad requerida
+                </button>
+            </div>
+
+            <p class="text-[10px] text-slate-500 uppercase tracking-widest">Cribas Maracaibo &copy; Disfrute con responsabilidad</p>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center bg-obsidian-800 transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                        <span class="font-cinzel text-gold-400 font-bold text-lg">C</span>
+                    </div>
+                    <div>
+                        <span class="font-cinzel font-bold text-xl tracking-[0.25em] text-gold-gradient block">CRIBAS</span>
+                        <span class="text-[9px] uppercase tracking-widest text-gold-400/70 block">MARACAIBO &bull; ALTA GAMA</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu Nav Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-medium uppercase tracking-widest text-slate-300">
+                    <a href="#hero" class="hover:text-gold-400 transition-colors">Inicio</a>
+                    <a href="#catalog" class="hover:text-gold-400 transition-colors">Colección Privada</a>
+                    <a href="#vip-concierge" class="hover:text-gold-400 transition-colors">Atención VIP</a>
+                    <a href="#location" class="hover:text-gold-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Actions: Instagram & Direct Cart -->
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.instagram.com/criba.ve?stkn=MTl0NXlrNXZ4bXFiYw==" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-full border border-gold-500/30 text-gold-400 hover:bg-gold-500/10 transition-all" title="Instagram @criba.ve">
+                        <i class="fa-brands fa-instagram text-lg"></i>
+                    </a>
+
+                    <!-- Cart Trigger Button -->
+                    <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-full bg-gold-500/10 border border-gold-500/40 text-gold-400 hover:bg-gold-500/20 transition-all flex items-center justify-center">
+                        <i class="fa-solid fa-bag-shopping text-base"></i>
+                        <span id="cartBadge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-gold-500 text-obsidian-900 text-[10px] font-bold rounded-full flex items-center justify-center border border-obsidian-900 hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section id="hero" class="relative min-h-[85vh] flex items-center justify-center pt-12 pb-20 overflow-hidden">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-amber-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/5 backdrop-blur-md">
+                <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+                <span class="text-[11px] uppercase tracking-widest text-gold-300 font-medium">Boutique Exclusiva de Licores &bull; Maracaibo</span>
+            </div>
+
+            <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-100 leading-tight">
+                CRIBAS <br>
+                <span class="text-gold-gradient font-normal italic">El Arte del Buen Beber</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-sm sm:text-base text-slate-300/90 font-light leading-relaxed tracking-wide">
+                Curaduría refinada de los espirituosos más codiciados del planeta. Cognacs legendarios, Whiskies de edición limitada, Tequilas extra añejos y Champagnes icónicos. Entrega exprés con temperatura controlada a toda Maracaibo.
+            </p>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-5">
+                <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl btn-gold text-xs uppercase tracking-[0.2em] shadow-xl flex items-center justify-center gap-3 group">
+                    Explorar Colección
+                    <i class="fa-solid fa-arrow-right-long text-xs transition-transform group-hover:translate-x-1"></i>
+                </a>
+                <a href="#vip-concierge" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card border-gold-500/30 hover:border-gold-500/60 text-gold-300 text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-crown text-gold-400"></i>
+                    Atención VIP / Concierge
+                </a>
+            </div>
+
+            <!-- Features Quick Highlights -->
+            <div class="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-truck-fast text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">Delivery VIP</p>
+                        <p class="text-[10px] text-slate-400">Zona Norte & Bella Vista</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-certificate text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">100% Auténtico</p>
+                        <p class="text-[10px] text-slate-400">Garantía de Origen</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-glass-water-droplet text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">Temperatura Ideal</p>
+                        <p class="text-[10px] text-slate-400">Cavas climatizadas</p>
+                    </div>
+                </div>
+                <div class="p-4 rounded-xl glass-card border-gold-500/10 flex items-center gap-3">
+                    <i class="fa-solid fa-[24-7] text-gold-400 text-xl"></i>
+                    <div>
+                        <p class="text-xs font-semibold text-slate-200">Concierge Privado</p>
+                        <p class="text-[10px] text-slate-400">Asesoría sommelier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Interactive Catalog / Showcase Section -->
+    <section id="catalog" class="py-20 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-4 mb-12">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Catálogo Exclusivo</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-slate-100">Colecciones de Alta Gama</h2>
+            <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-gold-500 to-transparent mx-auto"></div>
+        </div>
+
+        <!-- Search Bar & Filters Header -->
+        <div class="space-y-6 mb-10">
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gold-400/60 text-sm"></i>
+                <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Buscar por marca, destilería o añada (ej. Macallan, Don Julio, Blue Label)..." 
+                    class="w-full pl-11 pr-4 py-3.5 bg-obsidian-800/80 border border-gold-500/20 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-gold-500/60 focus:ring-1 focus:ring-gold-500/30 transition-all">
+            </div>
+
+            <!-- Categories Tabs -->
+            <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-4 scrollbar-none text-xs">
+                <button onclick="setCategory('all')" class="cat-btn active px-5 py-2.5 rounded-full border border-gold-500/40 bg-gold-500 text-obsidian-900 font-semibold tracking-wider transition-all shrink-0">
+                    Todos
+                </button>
+                <button onclick="setCategory('whisky')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    Single Malt & Whisky
+                </button>
+                <button onclick="setCategory('tequila')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    Tequila & Mezcal
+                </button>
+                <button onclick="setCategory('cognac')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    Cognac & Brandy
+                </button>
+                <button onclick="setCategory('champagne')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    Champagne & Espumantes
+                </button>
+                <button onclick="setCategory('rum')" class="cat-btn px-5 py-2.5 rounded-full border border-gold-500/20 bg-obsidian-800/60 text-slate-300 hover:border-gold-500/40 tracking-wider transition-all shrink-0">
+                    Ron Gran Reserva
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Grid Dynamic Output -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamically populated via Javascript -->
+        </div>
+    </section>
+
+    <!-- 4. Sommelier & VIP Concierge Experience Section -->
+    <section id="vip-concierge" class="py-20 relative z-10 bg-obsidian-800/40 border-y border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-400 font-semibold block">Servicios Exclusivos Cribas</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-slate-100 leading-tight">
+                        Concierge Privado & Experiencias de Catas
+                    </h2>
+                    <p class="text-sm text-slate-300 leading-relaxed font-light">
+                        Ofrecemos un servicio a la medida para los paladares más exigentes de Maracaibo. Desde la selección de botellas para bodas y eventos corporativos de alto nivel, hasta asesoría personalizada para cavas privadas.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-wine-glass text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-200">Asesoría para Bodas & Eventos</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">Cálculo de maridaje, consignación especial y entrega Climatizada en el lugar de la recepción.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-gift text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-200">Regalos Corporativos Luxury</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">Presentaciones de regalo personalizadas con grabado de cofres, copas de cristal y notas manuscritas.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-motorcycle text-gold-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-semibold text-slate-200">Delivery Exclusivo en Maracaibo</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">Atención inmediata en Zona Norte, La Lago, Bella Vista, 5 de Julio y zonas aledañas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/584240000000?text=Hola%20Cribas,%20deseo%20solicitar%20asesor%C3%ADa%20para%20un%20servicio%20VIP" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl btn-gold text-xs uppercase tracking-widest shadow-xl">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                            Solicitar Concierge VIP
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Showcase Glass Banner -->
+                <div class="relative">
+                    <div class="glass-card p-8 rounded-2xl border-gold-500/30 relative z-10 space-y-6">
+                        <div class="flex justify-between items-center border-b border-gold-500/20 pb-4">
+                            <span class="font-cinzel text-xl text-gold-300 font-bold">CRIBAS Experience</span>
+                            <span class="text-[10px] uppercase tracking-widest bg-gold-500/20 text-gold-300 px-3 py-1 rounded-full border border-gold-500/30">Maracaibo</span>
+                        </div>
+                        <p class="text-xs text-slate-300 italic leading-relaxed">
+                            "El verdadero lujo no es solo poseer una botella extraordinaria, sino el ritual y la memoria que se crea al descorcharla."
+                        </p>
+                        <div class="space-y-3 pt-2">
+                            <div class="flex justify-between text-xs border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Atención WhatsApp Directo</span>
+                                <span class="text-gold-400 font-semibold">Respuesta inmediata</span>
+                            </div>
+                            <div class="flex justify-between text-xs border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">Envíos Especiales</span>
+                                <span class="text-slate-200">Zulia & Nacional</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-slate-400">Métodos de Pago</span>
+                                <span class="text-slate-200">Zelle, Cash, Banesco, USDT</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Background Accent Glow -->
+                    <div class="absolute -bottom-6 -right-6 w-full h-full bg-gold-500/10 rounded-2xl blur-xl pointer-events-none"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Tasting Notes Modal (Interactive Flavor Profile) -->
+    <div id="tastingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-900/90 backdrop-blur-md hidden-modal">
+        <div class="relative max-w-xl w-full glass-card rounded-2xl p-6 sm:p-8 border border-gold-500/40 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button onclick="closeTastingModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 flex items-center justify-center transition-all">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+                <img id="modalImg" src="" alt="" class="w-20 h-28 object-contain rounded-lg bg-obsidian-900/50 p-2 border border-gold-500/20">
+                <div>
+                    <span id="modalCategory" class="text-[10px] uppercase tracking-widest text-gold-400 font-semibold">Categoría</span>
+                    <h3 id="modalTitle" class="font-cinzel text-xl font-bold text-slate-100">Nombre de la Botella</h3>
+                    <p id="modalPrice" class="text-gold-gradient font-bold text-lg mt-1">$0.00</p>
+                </div>
+            </div>
+
+            <div class="w-full h-px bg-gold-500/20"></div>
+
+            <!-- Flavor & Tasting Notes Grid -->
+            <div class="space-y-4">
+                <h4 class="font-cinzel text-sm text-gold-300 font-bold tracking-wider">Notas de Cata & Perfil Sensorial</h4>
+                
+                <div class="grid grid-cols-2 gap-3 text-xs">
+                    <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
+                        <span class="text-gold-400/80 font-medium block mb-1">Aroma</span>
+                        <p id="modalAroma" class="text-slate-300 font-light">--</p>
+                    </div>
+                    <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
+                        <span class="text-gold-400/80 font-medium block mb-1">Paladar</span>
+                        <p id="modalPalate" class="text-slate-300 font-light">--</p>
+                    </div>
+                    <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
+                        <span class="text-gold-400/80 font-medium block mb-1">Final</span>
+                        <p id="modalFinish" class="text-slate-300 font-light">--</p>
+                    </div>
+                    <div class="bg-obsidian-800/80 p-3 rounded-lg border border-gold-500/10">
+                        <span class="text-gold-400/80 font-medium block mb-1">Graduación Alcohólica</span>
+                        <p id="modalABV" class="text-slate-300 font-light">--</p>
+                    </div>
+                </div>
+
+                <div class="bg-obsidian-800/80 p-3.5 rounded-lg border border-gold-500/10 text-xs">
+                    <span class="text-gold-400/80 font-medium block mb-1">Sugerencia de Maridaje</span>
+                    <p id="modalPairing" class="text-slate-300 font-light">--</p>
+                </div>
+            </div>
+
+            <div class="pt-2 flex gap-3">
+                <button id="modalAddToCartBtn" class="w-full py-3 rounded-xl btn-gold text-xs uppercase tracking-widest">
+                    Añadir a la Selección
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Luxury Cart / Direct WhatsApp Order Drawer -->
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-obsidian-900/95 backdrop-blur-2xl border-l border-gold-500/30 transform translate-x-full transition-transform duration-500 flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-gold-500/20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bag-shopping text-gold-400"></i>
+                <h3 class="font-cinzel text-lg font-bold text-slate-100 tracking-wider">Tu Selección VIP</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-gold-400 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Body Items -->
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Empty state fallback -->
+            <div id="emptyCartMsg" class="text-center py-16 space-y-3">
+                <i class="fa-solid fa-wine-bottle text-4xl text-slate-700"></i>
+                <p class="text-xs text-slate-400">Aún no has agregado botellas a tu selección.</p>
+            </div>
+        </div>
+
+        <!-- Drawer Footer Checkout -->
+        <div class="p-6 border-t border-gold-500/20 bg-obsidian-800/50 space-y-4">
+            <div class="space-y-2 text-xs">
+                <div class="flex justify-between text-slate-400">
+                    <span>Subtotal Estimado</span>
+                    <span id="cartSubtotal" class="text-slate-200 font-semibold">$0.00</span>
+                </div>
+                <div class="flex justify-between text-slate-400">
+                    <span>Delivery en Maracaibo</span>
+                    <span class="text-gold-400">A coordinar</span>
+                </div>
+                <div class="flex justify-between text-sm font-bold pt-2 border-t border-slate-800">
+                    <span class="text-slate-200">Total</span>
+                    <span id="cartTotal" class="text-gold-gradient text-lg">$0.00</span>
+                </div>
+            </div>
+
+            <button onclick="sendWhatsAppOrder()" class="w-full py-4 rounded-xl btn-gold text-xs uppercase tracking-widest flex items-center justify-center gap-3 shadow-xl">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                Enviar Pedido por WhatsApp
+            </button>
+            <p class="text-[10px] text-center text-slate-500">Un concierge de Cribas Maracaibo confirmará disponibilidad de inmediato.</p>
+        </div>
+    </div>
+
+    <!-- 7. Footer & Social Links -->
+    <footer id="location" class="relative z-10 border-t border-gold-500/20 bg-obsidian-900 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <span class="font-cinzel text-2xl font-bold tracking-widest text-gold-gradient block">CRIBAS</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Licorería de Alta Gama en Maracaibo, Venezuela. Especialistas en licores raros, champagnes finos y destilados ultra-premium.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="https://www.instagram.com/criba.ve?stkn=MTl0NXlrNXZ4bXFiYw==" target="_blank" class="w-9 h-9 rounded-full bg-obsidian-800 border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/584240000000" target="_blank" class="w-9 h-9 rounded-full bg-obsidian-800 border border-gold-500/30 text-gold-400 hover:bg-gold-500/20 flex items-center justify-center transition-all">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Links -->
+                <div class="space-y-3">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold">Navegación</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#hero" class="hover:text-gold-400 transition-colors">Inicio</a></li>
+                        <li><a href="#catalog" class="hover:text-gold-400 transition-colors">Catálogo VIP</a></li>
+                        <li><a href="#vip-concierge" class="hover:text-gold-400 transition-colors">Servicios Sommelier</a></li>
+                        <li><a href="#catalog" class="hover:text-gold-400 transition-colors">Whiskies & Cognacs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours & Delivery -->
+                <div class="space-y-3">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold">Ubicación & Horarios</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        <i class="fa-solid fa-location-dot text-gold-400 mr-2"></i>Maracaibo, Estado Zulia.<br>
+                        Atención en Tienda & Delivery Exclusivo.
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        <i class="fa-solid fa-clock text-gold-400 mr-2"></i>Lunes a Sábado: 10:00 AM - 10:00 PM
+                    </p>
+                </div>
+
+                <!-- Instagram Badge -->
+                <div class="space-y-3">
+                    <h4 class="font-cinzel text-xs uppercase tracking-widest text-gold-300 font-bold">Comunidad Instagram</h4>
+                    <a href="https://www.instagram.com/criba.ve?stkn=MTl0NXlrNXZ4bXFiYw==" target="_blank" class="block glass-card p-4 rounded-xl border-gold-500/20 hover:border-gold-500/50 transition-all group">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-brands fa-instagram text-2xl text-gold-400 group-hover:scale-110 transition-transform"></i>
+                            <div>
+                                <span class="text-xs font-semibold text-slate-200 block">@criba.ve</span>
+                                <span class="text-[10px] text-slate-400">Síguenos para lanzamientos exclusivos</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full h-px bg-gold-500/20"></div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+                <p>&copy; 2026 CRIBAS Maracaibo. Todos los derechos reservados.</p>
+                <p class="uppercase tracking-widest text-gold-400/60">El consumo en exceso es nocivo para la salud</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- 1. Product Data Store ---
+        const products = [
+            {
+                id: 1,
+                name: "The Macallan 18 Years Sherry Oak",
+                category: "whisky",
+                price: 420.00,
+                image: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=600&q=80",
+                badge: "Edición Limitada",
+                aroma: "Jerez rico, jengibre, clavo y madera de roble.",
+                palate: "Suave, fruta madura, especias finas y naranja.",
+                finish: "Largo, cálido con notas de frutos secos.",
+                abv: "43% Vol.",
+                pairing: "Chocolates amargos al 70% o puros de alta regalía."
+            },
+            {
+                id: 2,
+                name: "Don Julio 1942 Añejo Tequila",
+                category: "tequila",
+                price: 280.00,
+                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+                badge: "Iconic Reserve",
+                aroma: "Rica vainilla, agave tostado y toques de roble fino.",
+                palate: "Seda pura con caramelo, chocolate y frutos secos.",
+                finish: "Persistente con roble dulce y vainilla.",
+                abv: "38% Vol.",
+                pairing: "Postres con caramelo, quesos maduros o degustación pura."
+            },
+            {
+                id: 3,
+                name: "Dom Pérignon Vintage Champagne",
+                category: "champagne",
+                price: 340.00,
+                image: "https://images.unsplash.com/photo-1569937756447-1d44f657dc69?auto=format&fit=crop&w=600&q=80",
+                badge: "Prestige Cuvée",
+                aroma: "Flores blancas, melocotón de viña y notas de brioche tostado.",
+                palate: "Elegante, burbuja ultra fina y acidez balanceada.",
+                finish: "Limpio, mineral y memorable.",
+                abv: "12.5% Vol.",
+                pairing: "Ostras frescas, caviar o mariscos de alta cocina."
+            },
+            {
+                id: 4,
+                name: "Hennessy X.O Cognac Extra Old",
+                category: "cognac",
+                price: 310.00,
+                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80",
+                badge: "Gran Clásico",
+                aroma: "Frutas confitadas, pimienta negra y notas de cacao.",
+                palate: "Robusto, complejo con toques de pimienta y cedro.",
+                finish: "Terciopelo envolvente y muy prolongado.",
+                abv: "40% Vol.",
+                pairing: "Puros habanos, quesos azules o consumo digestivo."
+            },
+            {
+                id: 5,
+                name: "Johnnie Walker Blue Label",
+                category: "whisky",
+                price: 260.00,
+                image: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=600&q=80",
+                badge: "Rare Blended",
+                aroma: "Humo suave, avellana confitada y especias.",
+                palate: "Miel, jerez, naranjas secas y toque ahumado.",
+                finish: "Ahumado terciopelado inconfundible.",
+                abv: "40% Vol.",
+                pairing: "Acompañamiento con agua helada de manantial."
+            },
+            {
+                id: 6,
+                name: "Diplomático Ambassador Single Cask Rum",
+                category: "rum",
+                price: 290.00,
+                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80",
+                badge: "Orgullo Venezolano",
+                aroma: "Oporto, frutos secos, tabaco y roble espeso.",
+                palate: "Complejo, vainilla profunda, chocolate negro y canela.",
+                finish: "Extremadamente largo y cálido.",
+                abv: "47% Vol.",
+                pairing: "Postres de chocolate amargo, frutos secos y puros."
+            }
+        ];
+
+        let currentCategory = 'all';
+        let cart = [];
+
+        // --- 2. Initial Setup & Age Modal ---
+        window.onload = function() {
+            // Check if user already verified age in current session
+            const isVerified = sessionStorage.getItem('cribasAgeVerified');
+            if (isVerified === 'true') {
+                document.getElementById('ageModal').classList.add('hidden');
+            }
+            renderProducts();
+            initParticles();
+        };
+
+        function confirmAge(isAdult) {
+            if (isAdult) {
+                sessionStorage.setItem('cribasAgeVerified', 'true');
+                const modal = document.getElementById('ageModal');
+                modal.style.opacity = '0';
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 700);
+            } else {
+                alert("Debes ser mayor de edad para ingresar a la boutique de Cribas.");
+            }
+        }
+
+        // --- 3. Filter & Product Render ---
+        function setCategory(cat) {
+            currentCategory = cat;
+            
+            // Update active tab styling
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-gold-500', 'text-obsidian-900', 'font-semibold');
+                btn.classList.add('bg-obsidian-800/60', 'text-slate-300');
+            });
+
+            event.currentTarget.classList.add('bg-gold-500', 'text-obsidian-900', 'font-semibold');
+            event.currentTarget.classList.remove('bg-obsidian-800/60', 'text-slate-300');
+
+            renderProducts();
+        }
+
+        function filterProducts() {
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('productGrid');
+            const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+            const filtered = products.filter(p => {
+                const matchesCategory = (currentCategory === 'all' || p.category === currentCategory);
+                const matchesSearch = p.name.toLowerCase().includes(searchQuery) || p.badge.toLowerCase().includes(searchQuery);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="col-span-full text-center py-12 text-slate-400 space-y-2">
+                        <i class="fa-solid fa-magnifying-glass text-3xl text-gold-500/40"></i>
+                        <p class="text-sm">No encontramos botellas que coincidan con tu búsqueda.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filtered.map(p => `
+                <div class="glass-card rounded-2xl p-5 border border-gold-500/20 hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between group">
+                    <div class="relative space-y-4">
+                        <!-- Badge -->
+                        <span class="absolute top-0 right-0 text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300">
+                            ${p.badge}
+                        </span>
+
+                        <!-- Bottle Image -->
+                        <div class="h-52 w-full flex items-center justify-center p-4 overflow-hidden">
+                            <img src="${p.image}" alt="${p.name}" class="h-full object-contain group-hover:scale-105 transition-transform duration-500 filter drop-shadow-[0_10px_15px_rgba(0,0,0,0.8)]" onerror="this.src='https://placehold.co/300x400/111116/D4AF37?text=CRIBAS+Bottle'">
+                        </div>
+
+                        <!-- Info -->
+                        <div>
+                            <span class="text-[10px] uppercase tracking-widest text-gold-400/80 font-medium">${p.category}</span>
+                            <h3 class="font-cinzel text-lg font-bold text-slate-100 group-hover:text-gold-300 transition-colors">${p.name}</h3>
+                            <p class="text-gold-gradient font-bold text-xl mt-1">$${p.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 space-y-2.5">
+                        <button onclick="openTastingModal(${p.id})" class="w-full py-2.5 rounded-lg border border-gold-500/30 hover:border-gold-500 text-gold-300 text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wine-glass text-[11px]"></i>
+                            Notas de Cata
+                        </button>
+                        <button onclick="addToCart(${p.id})" class="w-full py-3 rounded-lg btn-gold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
+                            <i class="fa-solid fa-plus text-[11px]"></i>
+                            Añadir a Selección
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 4. Tasting Modal Logic ---
+        function openTastingModal(id) {
+            const p = products.find(prod => prod.id === id);
+            if (!p) return;
+
+            document.getElementById('modalImg').src = p.image;
+            document.getElementById('modalCategory').innerText = p.category;
+            document.getElementById('modalTitle').innerText = p.name;
+            document.getElementById('modalPrice').innerText = `$${p.price.toFixed(2)}`;
+            document.getElementById('modalAroma').innerText = p.aroma;
+            document.getElementById('modalPalate').innerText = p.palate;
+            document.getElementById('modalFinish').innerText = p.finish;
+            document.getElementById('modalABV').innerText = p.abv;
+            document.getElementById('modalPairing').innerText = p.pairing;
+
+            const addBtn = document.getElementById('modalAddToCartBtn');
+            addBtn.onclick = function() {
+                addToCart(p.id);
+                closeTastingModal();
+            };
+
+            const modal = document.getElementById('tastingModal');
+            modal.classList.remove('hidden-modal');
+            modal.classList.add('show-modal');
+        }
+
+        function closeTastingModal() {
+            const modal = document.getElementById('tastingModal');
+            modal.classList.remove('show-modal');
+            modal.classList.add('hidden-modal');
+        }
+
+        // --- 5. Cart & WhatsApp Integration ---
+        function addToCart(id) {
+            const p = products.find(prod => prod.id === id);
+            const existing = cart.find(item => item.id === id);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...p, quantity: 1 });
+            }
+
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCartUI();
+        }
+
+        function changeQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.quantity += delta;
+            if (item.quantity <= 0) {
+                removeFromCart(id);
+            } else {
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const badge = document.getElementById('cartBadge');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const totalEl = document.getElementById('cartTotal');
+
+            const totalItems = cart.reduce((acc, i) => acc + i.quantity, 0);
+            const totalSum = cart.reduce((acc, i) => acc + (i.price * i.quantity), 0);
+
+            // Badge count
+            if (totalItems > 0) {
+                badge.innerText = totalItems;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            subtotalEl.innerText = `$${totalSum.toFixed(2)}`;
+            totalEl.innerText = `$${totalSum.toFixed(2)}`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div id="emptyCartMsg" class="text-center py-16 space-y-3">
+                        <i class="fa-solid fa-wine-bottle text-4xl text-slate-700"></i>
+                        <p class="text-xs text-slate-400">Aún no has agregado botellas a tu selección.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center gap-4 bg-obsidian-800/80 p-3.5 rounded-xl border border-gold-500/10">
+                    <img src="${item.image}" alt="${item.name}" class="w-12 h-16 object-contain rounded bg-obsidian-900/50 p-1">
+                    <div class="flex-1 min-w-0">
+                        <h4 class="text-xs font-semibold text-slate-200 truncate">${item.name}</h4>
+                        <p class="text-gold-400 text-xs font-bold mt-0.5">$${(item.price * item.quantity).toFixed(2)}</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-5 h-5 rounded bg-obsidian-700 text-slate-300 text-xs flex items-center justify-center hover:bg-gold-500 hover:text-obsidian-900">-</button>
+                            <span class="text-xs text-slate-200">${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-5 h-5 rounded bg-obsidian-700 text-slate-300 text-xs flex items-center justify-center hover:bg-gold-500 hover:text-obsidian-900">+</button>
+                        </div>
+                    </div>
+                    <button onclick="removeFromCart(${item.id})" class="text-slate-500 hover:text-red-400 text-xs p-1">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartDrawer(openState) {
+            const drawer = document.getElementById('cartDrawer');
+            if (openState === true) {
+                drawer.classList.remove('translate-x-full');
+            } else if (openState === false) {
+                drawer.classList.add('translate-x-full');
+            } else {
+                drawer.classList.toggle('translate-x-full');
+            }
+        }
+
+        function sendWhatsAppOrder() {
+            if (cart.length === 0) {
+                alert("Tu selección está vacía. Selecciona botellas antes de continuar.");
+                return;
+            }
+
+            let text = "✨ *NUEVO PEDIDO DE SELECCIÓN VIP - CRIBAS MARACAIBO* ✨%0A%0A";
+            text += "Deseo consultar disponibilidad y coordinar delivery para las siguientes botellas:%0A%0A";
+
+            cart.forEach(item => {
+                text += `• *${item.name}* (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}%0A`;
+            });
+
+            const total = cart.reduce((acc, i) => acc + (i.price * i.quantity), 0);
+            text += `%0A*Monto Total Estimado:* $${total.toFixed(2)}%0A`;
+            text += "%0A📍 *Ubicación de Entrega en Maracaibo:* ";
+
+            window.open(`https://wa.me/584240000000?text=${text}`, '_blank');
+        }
+
+        // --- 6. Particle Canvas Background ---
+        function initParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const particles = [];
+            const particleCount = 45;
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 1.5 + 0.5,
+                    color: `rgba(212, 175, 55, ${Math.random() * 0.4 + 0.1})`,
+                    speedY: - (Math.random() * 0.4 + 0.1),
+                    speedX: (Math.random() - 0.5) * 0.2
+                });
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.shadowBlur = 8;
+                    ctx.shadowColor = '#D4AF37';
+                    ctx.fill();
+
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+
+                    if (p.y < 0) {
+                        p.y = canvas.height;
+                        p.x = Math.random() * canvas.width;
+                    }
+                });
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            animateParticles();
+        }
+    </script>
+</body>
+</html>
